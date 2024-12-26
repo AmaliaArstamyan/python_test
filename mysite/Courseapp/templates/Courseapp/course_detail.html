@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ course.title }}</title>
+</head>
+<body>
+    <h1>{{ course.title }}</h1>
+    <p>{{ course.description }}</p>
+    <p>Rating: {{ course.rate }} ({{ course.quantity }} ratings)</p>
+    
+    <h2>Rate this Course</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Rating</button>
+    </form>
+    
+    <a href="{% url 'course_list' %}">Back to Course List</a>
+</body>
+</html>
